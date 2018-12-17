@@ -1,5 +1,4 @@
 const path = require('path')
-const moment = require('moment')
 
 const pkg = require('../package.json')
 
@@ -12,6 +11,14 @@ module.exports = {
         'data-hid': 'author',
         name: 'author',
         content: pkg.author
+      }
+    ],
+    [
+      'meta',
+      {
+        'data-hid': 'repository',
+        name: 'repository',
+        content: pkg.repository
       }
     ],
     [
@@ -116,11 +123,11 @@ module.exports = {
   additionalPages: [
     {
       path: '/changelog/',
-      filePath: path.resolve(__dirname, '../../CHANGELOG.md')
+      filePath: path.resolve(__dirname, '../CHANGELOG.md')
     },
     {
       path: '/th/changelog/',
-      filePath: path.resolve(__dirname, '../../CHANGELOG.md')
+      filePath: path.resolve(__dirname, '../CHANGELOG.md')
     }
   ],
   plugins: {
@@ -131,9 +138,8 @@ module.exports = {
     },
     '@vuepress/last-updated': {
       transformer: (timestamp, lang) => {
-        moment.locale(lang || 'en')
-        const time = moment(timestamp)
-        return time.toLocaleString()
+        const time = new Date(timestamp)
+        return time.toLocaleTimeString(lang)
       }
     },
     '@vuepress/google-analytics': {
