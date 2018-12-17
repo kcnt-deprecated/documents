@@ -25,6 +25,11 @@ jobs:
           paths:
             - ~/repo/node_modules
       - run:
+          name: Setup git configuration
+          command: |
+            git config --global user.email "bot@kcnt.info"
+            git config --global user.name "kcnt-bot"
+      - run:
           name: Release new version
           command: |
             if [ "${CIRCLE_BRANCH}" == "master" ]; then
