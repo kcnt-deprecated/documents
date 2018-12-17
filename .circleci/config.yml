@@ -39,5 +39,5 @@ jobs:
           name: Build the website
           command: |
             if [ "${CIRCLE_BRANCH}" == "master" ]; then
-              yarn deploy
+              yarn deploy --repo 'https://' + $GH_TOKEN + '@github.com/kcnt-info/documents.git' --silent
             fi
