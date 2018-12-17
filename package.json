@@ -1,6 +1,6 @@
 {
   "name": "kcnt-info-docs",
-  "version": "0.0.0-development",
+  "version": "1.0.0",
   "description": "documentation website for kcnt.info",
   "repository": "https://github.com/kcnt-info/Documents.git",
   "author": "Kamontat Chantrachirathumrong <kamontat_c@hotmail.com>",
@@ -57,7 +57,8 @@
       [
         "@semantic-release/commit-analyzer",
         {
-          "releaseRules": [{
+          "releaseRules": [
+            {
               "type": "feat",
               "scope": "core",
               "release": "major"
