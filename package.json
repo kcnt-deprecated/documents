@@ -46,12 +46,12 @@
     "unified": "7.1.0"
   },
   "scripts": {
-    "dev": "vuepress dev",
-    "build": "vuepress build",
-    "gh-page": "gh-pages --dist .vuepress/dist --message \"docs(gh-pages): Update landing page of the project. [skip ci]\" --add",
+    "dev": "vuepress dev src",
+    "build": "vuepress build src",
+    "gh-page": "gh-pages --dist src/.vuepress/dist --message \"docs(gh-pages): Update landing page of the project. [skip ci]\" --add",
     "deploy": "vuepress build --debug && yarn gh-page",
-    "lint": "eslint --ext .js,.vue --ignore-path .gitignore .vuepress && markdownlint . --ignore node_modules && remark .",
-    "lint:fix": "eslint --fix --ext .js,.vue --ignore-path .gitignore .vuepress",
+    "lint": "eslint --ext .js,.vue --ignore-path .gitignore src/.vuepress && markdownlint . --ignore node_modules && remark .",
+    "lint:fix": "eslint --fix --ext .js,.vue --ignore-path .gitignore src/.vuepress",
     "release": "semantic-release --debug"
   },
   "commitlint": {
@@ -61,7 +61,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "yarn lint:fix",
+      "pre-commit": "yarn lint",
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   },

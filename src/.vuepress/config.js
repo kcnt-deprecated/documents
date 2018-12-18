@@ -1,6 +1,6 @@
 const path = require('path')
 
-const pkg = require('../package.json')
+const pkg = require('../../package.json')
 
 module.exports = {
   base: '/',
@@ -123,11 +123,11 @@ module.exports = {
   additionalPages: [
     {
       path: '/changelog/',
-      filePath: path.resolve(__dirname, '../CHANGELOG.md')
+      filePath: path.resolve(__dirname, '../../CHANGELOG.md')
     },
     {
       path: '/th/changelog/',
-      filePath: path.resolve(__dirname, '../CHANGELOG.md')
+      filePath: path.resolve(__dirname, '../../CHANGELOG.md')
     }
   ],
   plugins: {
