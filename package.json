@@ -48,7 +48,7 @@
   "scripts": {
     "dev": "vuepress dev",
     "build": "vuepress build",
-    "gh-page": "gh-pages --dist .vuepress/dist --message \"docs(gh-pages): Update landing page of the project. [skip ci]\"",
+    "gh-page": "gh-pages --dist .vuepress/dist --message \"docs(gh-pages): Update landing page of the project. [skip ci]\" --add",
     "deploy": "vuepress build --debug && yarn gh-page",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .vuepress && markdownlint . --ignore node_modules && remark .",
     "lint:fix": "eslint --fix --ext .js,.vue --ignore-path .gitignore .vuepress",
