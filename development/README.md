@@ -4,7 +4,7 @@ How we develop is website.
 
 ## Notes
 
-This website should be host in kcnt.info via netlify.
+This website should be host in kcnt.info via Netlify.
 Including `admin@kcnt.info` as **admin user** and `support@kcnt.info` as **support user**
 
 My primary email should be `iam@kamontat.net`

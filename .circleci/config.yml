@@ -33,11 +33,11 @@ jobs:
           name: Release new version
           command: |
             if [ "${CIRCLE_BRANCH}" == "master" ]; then
-              yarn release || true
+              yarn release
             fi
       - run:
           name: Build the website
           command: |
             if [ "${CIRCLE_BRANCH}" == "master" ]; then
-              yarn deploy --repo 'https://' + $GH_TOKEN + '@github.com/kcnt-info/documents.git' --silent
+              yarn deploy --silent --repo "https://$GH_TOKEN@github.com/kcnt-info/documents.git"
             fi

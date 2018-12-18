@@ -1,7 +1,13 @@
 # Planning
 
-We using [Waffle.io](Waffle.io), that allow us to integrate with Github Issues automatically.
-The Task management I follow project [Agile Methodologies](https://en.wikipedia.org/wiki/Agile_software_development). We have main board that contains multiple columns. ([Get start with Waffle](https://help.waffle.io/getting-started/getting-started-guide-creating-and-using-waffle-boards))
+## Table of Contents
+
+- [Table of Contents](#table-of-contents)
+- [Index](#index)
+- [Backlog](#backlog)
+- [In progress](#in-progress)
+- [Review](#review)
+- [Done](#done)
 
 ## Index
 
@@ -13,7 +19,7 @@ So it mean any issue that open without specify column, with appear here.
 
 "A place to keep issues that are good ideas but are being saved for later." -- [Waffle's definition](https://help.waffle.io/getting-started/getting-started-guide-creating-and-using-waffle-boards)
 
-We use this column for prioritize and plan the work to be done (Include every [Must have](https://en.wikipedia.org/wiki/MoSCoW_method) method and [Should have](https://en.wikipedia.org/wiki/MoSCoW_method) method method).
+We use this column for prioritize and plan the work to be done (Include every [Must have](https://en.wikipedia.org/wiki/MoSCoW_method) method and [Should have](https://en.wikipedia.org/wiki/MoSCoW_method) method).
 
 ## In progress
 

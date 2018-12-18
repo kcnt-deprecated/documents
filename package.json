@@ -21,7 +21,8 @@
     "@semantic-release/git": "7.0.5",
     "@semantic-release/github": "5.2.6",
     "@semantic-release/release-notes-generator": "7.1.4",
-    "babel-eslint": "^10.0.1",
+    "babel-eslint": "10.0.1",
+    "dictionary-en-us": "2.0.0",
     "eslint": "5.10.0",
     "eslint-config-prettier": "3.3.0",
     "eslint-loader": "2.1.1",
@@ -31,15 +32,27 @@
     "husky": "1.2.1",
     "markdownlint-cli": "^0.13.0",
     "prettier": "1.14.3",
-    "semantic-release": "15.13.1"
+    "remark-cli": "6.0.1",
+    "remark-frontmatter": "1.3.1",
+    "remark-retext": "3.1.2",
+    "remark-validate-links": "7.1.2",
+    "retext-english": "3.0.2",
+    "retext-repeated-words": "1.2.2",
+    "retext-sentence-spacing": "2.0.3",
+    "retext-spell": "2.4.0",
+    "retext-syntax-urls": "1.0.1",
+    "retext-usage": "0.5.0",
+    "semantic-release": "15.13.1",
+    "unified": "7.1.0"
   },
   "scripts": {
     "dev": "vuepress dev",
     "build": "vuepress build",
-    "deploy": "vuepress build --debug && gh-pages --dist .vuepress/dist --message \"docs(gh-pages): Update landing page of the project. [skip ci]\" --add",
-    "lint": "eslint --ext .js,.vue --ignore-path .gitignore .vuepress && markdownlint --ignore node_modules --config .markdownlintrc.json .",
+    "gh-page": "gh-pages --dist .vuepress/dist --message \"docs(gh-pages): Update landing page of the project. [skip ci]\"",
+    "deploy": "vuepress build --debug && yarn gh-page",
+    "lint": "eslint --ext .js,.vue --ignore-path .gitignore .vuepress && markdownlint . --ignore node_modules && remark .",
     "lint:fix": "eslint --fix --ext .js,.vue --ignore-path .gitignore .vuepress",
-    "release": "semantic-release"
+    "release": "semantic-release --debug"
   },
   "commitlint": {
     "extends": [
@@ -48,7 +61,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "yarn lint",
+      "pre-commit": "yarn lint:fix",
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   },
@@ -57,8 +70,7 @@
       [
         "@semantic-release/commit-analyzer",
         {
-          "releaseRules": [
-            {
+          "releaseRules": [{
               "type": "feat",
               "scope": "core",
               "release": "major"
