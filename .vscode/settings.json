@@ -1,0 +1,37 @@
+{
+  "editor.colorDecorators": false,
+  "editor.detectIndentation": false,
+  "editor.fontFamily": "'FiraCode-Retina'",
+  "editor.fontLigatures": true,
+  "editor.fontSize": 18,
+  "editor.formatOnPaste": false,
+  "editor.formatOnSave": false,
+  "editor.insertSpaces": true,
+  "editor.renderWhitespace": "boundary",
+  "editor.suggestFontSize": 20,
+  "editor.tabSize": 2,
+  "editor.tokenColorCustomizations": {
+    "[Material Theme Darker High Contrast]": {
+      "comments": "#5C6370"
+    }
+  },
+  "explorer.confirmDragAndDrop": false,
+  "explorer.openEditors.visible": 0,
+  "files.associations": {
+    "*.js": "javascriptreact",
+    "*.json": "jsonc"
+  },
+  "files.autoSave": "off",
+  "javascript.implicitProjectConfig.experimentalDecorators": true,
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "markdownlint.config": {
+    "MD013": false,
+    "MD033": false
+  },
+  "prettier.disableLanguages": ["sass", "scss", "vue"],
+  "prettier.eslintIntegration": true,
+  "prettier.printWidth": 120,
+  "terminal.integrated.fontSize": 20,
+  "zenMode.hideStatusBar": false,
+  "zenMode.hideTabs": false,
+}

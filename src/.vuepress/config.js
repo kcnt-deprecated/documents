@@ -64,10 +64,35 @@ module.exports = {
         activeHeaderLinks: true,
         displayAllHeaders: true,
         nav: [
-          { text: 'Home', link: '/' },
-          { text: 'Development', link: '/development/' },
-          { text: 'Design', link: '/design-principle/' },
-          { text: 'Changelog', link: '/changelog/' }
+          {
+            text: 'Home',
+            link: '/'
+          },
+          {
+            text: 'Development',
+            link: '/development/'
+          },
+          {
+            text: 'Design',
+            link: '/design-principle/'
+          },
+          {
+            text: 'Changelog',
+            items: [
+              {
+                text: 'Website',
+                link: '/changelog/'
+              },
+              {
+                text: 'Document',
+                link: '/changelog-doc/'
+              },
+              {
+                text: 'APIs',
+                link: '/changelog-api/'
+              }
+            ]
+          }
         ],
         // text for the edit-on-github link
         editLinkText: 'Edit this page on GitHub',
@@ -88,10 +113,35 @@ module.exports = {
         activeHeaderLinks: true,
         displayAllHeaders: true,
         nav: [
-          { text: 'หน้าแรก', link: '/th/' },
-          { text: 'การพัฒนา', link: '/th/development/' },
-          { text: 'การออกแบบ', link: '/th/design-principle/' },
-          { text: 'Changelog (Eng)', link: '/th/changelog/' }
+          {
+            text: 'หน้าแรก',
+            link: '/th/'
+          },
+          {
+            text: 'การพัฒนา',
+            link: '/th/development/'
+          },
+          {
+            text: 'การออกแบบ',
+            link: '/th/design-principle/'
+          },
+          {
+            text: 'Changelog (Eng)',
+            items: [
+              {
+                text: 'Website',
+                link: '/changelog/'
+              },
+              {
+                text: 'Document',
+                link: '/changelog-doc/'
+              },
+              {
+                text: 'APIs',
+                link: '/changelog-api/'
+              }
+            ]
+          }
         ],
         // text for the edit-on-github link
         editLinkText: 'ต้องการ แก้ไขหน้านี้ใน Github',
@@ -120,16 +170,44 @@ module.exports = {
     // defaults to false, set to true to enable
     editLinks: true
   },
-  additionalPages: [
-    {
-      path: '/changelog/',
-      filePath: path.resolve(__dirname, '../../CHANGELOG.md')
-    },
-    {
-      path: '/th/changelog/',
-      filePath: path.resolve(__dirname, '../../CHANGELOG.md')
-    }
-  ],
+  async additionalPages() {
+    // Note that VuePress doesn't have request library built-in
+    // you need to install it yourself.
+    const axios = require('axios')
+    const response = await axios.get(
+      'https://raw.githubusercontent.com/kcnt-info/website/master/CHANGELOG.md'
+    )
+    const apisResponse = await axios.get(
+      'https://raw.githubusercontent.com/kcnt-info/apis/master/CHANGELOG.md'
+    )
+
+    return [
+      {
+        path: '/changelog-doc/',
+        filePath: path.resolve(__dirname, '../../CHANGELOG.md')
+      },
+      {
+        path: '/th/changelog-doc/',
+        filePath: path.resolve(__dirname, '../../CHANGELOG.md')
+      },
+      {
+        path: '/changelog-api/',
+        content: apisResponse.data
+      },
+      {
+        path: '/th/changelog-api/',
+        content: apisResponse.data
+      },
+      {
+        path: '/changelog/',
+        content: response.data
+      },
+      {
+        path: '/th/changelog/',
+        content: response.data
+      }
+    ]
+  },
   plugins: {
     '@vuepress/back-to-top': {},
     '@vuepress/pwa': {
