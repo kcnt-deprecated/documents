@@ -1,5 +1,17 @@
 # Document version
 
+# [2.0.0](https://github.com/kcnt-info/documents/compare/v1.0.3...v2.0.0) (2018-12-18)
+
+
+### Features
+
+* **core:** move all code files to src folder ([7fc482e](https://github.com/kcnt-info/documents/commit/7fc482e))
+
+
+### BREAKING CHANGES
+
+* **core:** run vuepress in root directory will cause error
+
 ## [1.0.3](https://github.com/kcnt-info/documents/compare/v1.0.2...v1.0.3) (2018-12-18)
 
 
