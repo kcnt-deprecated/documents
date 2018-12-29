@@ -37,6 +37,15 @@ module.exports = {
         content:
           'document,documents,kamontat,chantrachirathumrong,website,vuepress,ssr,portfolio'
       }
+    ],
+    ['link', { rel: 'icon', href: 'https://apis.kcnt.info/logo' }],
+    [
+      'link',
+      {
+        rel: 'shortcut icon',
+        type: 'image/x-icon',
+        href: 'https://apis.kcnt.info/logo'
+      }
     ]
   ],
   locales: {
@@ -65,16 +74,17 @@ module.exports = {
         displayAllHeaders: true,
         nav: [
           {
-            text: 'Home',
-            link: '/'
-          },
-          {
-            text: 'Development',
-            link: '/development/'
-          },
-          {
-            text: 'Design',
-            link: '/design-principle/'
+            text: 'Information',
+            items: [
+              {
+                text: 'Development',
+                link: '/development/'
+              },
+              {
+                text: 'Design',
+                link: '/design-principle/'
+              }
+            ]
           },
           {
             text: 'Changelog',
@@ -92,8 +102,36 @@ module.exports = {
                 link: '/changelog-api/'
               }
             ]
+          },
+          {
+            text: 'Github',
+            items: [
+              {
+                text: 'Organization',
+                link: 'https://github.com/kcnt-info'
+              },
+              {
+                text: 'Website',
+                link: 'https://github.com/kcnt-info/website'
+              },
+              {
+                text: 'Document',
+                link: 'https://github.com/kcnt-info/documents'
+              },
+              {
+                text: 'API',
+                link: 'https://github.com/kcnt-info/apis'
+              }
+            ]
           }
         ],
+        searchMaxSuggestions: 3,
+        algolia: {
+          apiKey: 'cfad96bc0e76cc9b25c8e7f58ac3eb9a',
+          indexName: 'kcnt',
+          debug: false
+        },
+        lastUpdated: 'Last updated',
         // text for the edit-on-github link
         editLinkText: 'Edit this page on GitHub',
         // config for Service Worker
@@ -114,35 +152,64 @@ module.exports = {
         displayAllHeaders: true,
         nav: [
           {
-            text: 'หน้าแรก',
-            link: '/th/'
-          },
-          {
-            text: 'การพัฒนา',
-            link: '/th/development/'
-          },
-          {
-            text: 'การออกแบบ',
-            link: '/th/design-principle/'
+            text: 'ข้อมูลของเว็บ',
+            items: [
+              {
+                text: 'การพัฒนา',
+                link: '/th/development/'
+              },
+              {
+                text: 'การออกแบบ',
+                link: '/th/design-principle/'
+              }
+            ]
           },
           {
             text: 'Changelog (Eng)',
             items: [
               {
                 text: 'Website',
-                link: '/changelog/'
+                link: '/th/changelog/'
               },
               {
                 text: 'Document',
-                link: '/changelog-doc/'
+                link: '/th/changelog-doc/'
               },
               {
                 text: 'APIs',
-                link: '/changelog-api/'
+                link: '/th/changelog-api/'
+              }
+            ]
+          },
+          {
+            text: 'กิตฮับ',
+            items: [
+              {
+                text: 'องค์กร',
+                link: 'https://github.com/kcnt-info'
+              },
+              {
+                text: 'เว็บไซด์',
+                link: 'https://github.com/kcnt-info/website'
+              },
+              {
+                text: 'เอกสาร',
+                link: 'https://github.com/kcnt-info/documents'
+              },
+              {
+                text: 'API',
+                link: 'https://github.com/kcnt-info/apis'
               }
             ]
           }
         ],
+        searchMaxSuggestions: 3,
+        algolia: {
+          apiKey: 'cfad96bc0e76cc9b25c8e7f58ac3eb9a',
+          indexName: 'kcnt',
+          debug: false
+        },
+        lastUpdated: 'อัพเดตล่าสุด',
         // text for the edit-on-github link
         editLinkText: 'ต้องการ แก้ไขหน้านี้ใน Github',
         // config for Service Worker
@@ -154,17 +221,13 @@ module.exports = {
         }
       }
     },
-    searchMaxSuggestions: 3,
-    algolia: {
-      apiKey: 'cfad96bc0e76cc9b25c8e7f58ac3eb9a',
-      indexName: 'kcnt',
-      debug: false
-    },
     // Assumes GitHub. Can also be a full GitLab url.
-    repo: 'kcnt-info/Documents',
+    // repo: 'kcnt-info/Documents',
+    // repoLabel: undefined,
     // if your docs are in a different repo from your main project:
     docsRepo: 'kcnt-info/Documents',
     // if your docs are not at the root of the repo:
+    docsDir: 'src',
     // if your docs are in a specific branch (defaults to 'master'):
     docsBranch: 'master',
     // defaults to false, set to true to enable
@@ -213,12 +276,6 @@ module.exports = {
     '@vuepress/pwa': {
       serviceWorker: true,
       updatePopup: true
-    },
-    '@vuepress/last-updated': {
-      transformer: (timestamp, lang) => {
-        const time = new Date(timestamp)
-        return time.toLocaleTimeString(lang)
-      }
     },
     '@vuepress/google-analytics': {
       ga: 'UA-124896160-2'
