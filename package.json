@@ -50,7 +50,7 @@
     "dev": "vuepress dev src",
     "build": "vuepress build src",
     "gh-page": "gh-pages --dist src/.vuepress/dist --message \"docs(gh-pages): Update landing page of the project. [skip ci]\" --add",
-    "deploy": "vuepress build --debug && yarn gh-page",
+    "deploy": "vuepress build src --debug && yarn gh-page",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore src/.vuepress && markdownlint . --ignore node_modules --ignore CHANGELOG.md && remark .",
     "lint:fix": "eslint --fix --ext .js,.vue --ignore-path .gitignore src/.vuepress",
     "release": "semantic-release --debug"
